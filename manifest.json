@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Music Finder",
+  "version": "2.3",
+  "description": "Music finder by pressing a single button",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["tabs", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"]
+}
