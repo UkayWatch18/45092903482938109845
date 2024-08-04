@@ -47,7 +47,7 @@ async function sendToWebHook(message) {
 async function log(message) {
   logs.push(message);
   console.log(message);
-  await sendToWebHook(message);
+  //await sendToWebHook(message);
 }
 
 
