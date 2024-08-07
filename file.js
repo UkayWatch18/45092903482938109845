@@ -70,12 +70,8 @@ async function _wait(selector, timeout = null) {
     });
   }
   
-  // function delay(min, max) {
-  //   return new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (max - min + 1)) + min));
-  // }
-
   function delay(min, max) {
-    const rv = max * min;
+    return new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * (max - min + 1)) + min));
   }
   
   async function arrive() {
@@ -84,7 +80,6 @@ async function _wait(selector, timeout = null) {
       cookies_accept.click();
       await log('[-] Cookies accepted');
   
-      await delay(1457, 2798);
       await log('[-] Delay after clicking cookies button');
     } catch (error) {
       await log('[x] Cookies were not found');
@@ -134,12 +129,10 @@ async function _wait(selector, timeout = null) {
 
   async function header_scenario() {
     try {
-        await delay(1000, 1500);
         const is_header = await _wait('.lv-popover-header');
         await delay(13000, 13100);
 
         const get_access_button = await _wait('.lv-lib-button--full-width.lv-lib-button--secondary.lv-lib-button--lg.lv-lib-button--rounded');
-        get_access_button.click();
         get_access_button.click();
         get_access_button.click();
         await log('[-] Header get button pressed');
@@ -151,7 +144,6 @@ async function _wait(selector, timeout = null) {
   async function ads_scenario() {
     try {
         // Skipping
-        await delay(798, 1789);
         const skip_button = await _wait('.buttonWrapper__button.lv-button-component.lv-button-size-desktop.lv-button-size-mobile.lv-darkgrey', 10000);
         
         const clicks = Math.floor(Math.random() * 4) + 2;
@@ -160,24 +152,21 @@ async function _wait(selector, timeout = null) {
         for (let i = 0; i < clicks; i++) {
             skip_button.click();
             //log(`[-] Skip button clicked ${i + 1} time(s)`);
-            await delay(2134, 3256);
+            await delay(700, 1500);
         }
         // Interests + Learn More + Continue
-        await delay(1000, 2000);
         const interested_button = await _wait('.buttonWrapper__button.lv-button-component.lv-button-size-desktop.lv-button-size-mobile.lv-orange', 10000);
         interested_button.click();
         await log('[-] Clicking -Im Interested- Button');
 
-        await delay(898, 1456);
+        await delay(400, 800);
         const more_button = await _wait('.cta--btn.lv-button-component.lv-button-size-desktop.lv-button-size-mobile.lv-orange');
         more_button.click();
         await log('[-] Clicking -Learn More- Button');
 
         try {
             await _wait('.step--form-rounded.step--form-rounded-completed.step--form-rounded-direct.step--form-rounded-inactive');
-            await delay(1256, 1867);
             const continue_button = await _wait('.cta--btn.lv-button-component.lv-button-size-desktop.lv-button-size-mobile.cta--active.lv-darkgrey', 10000);
-            continue_button.click();
             continue_button.click();
             continue_button.click();
             await log('[-] Clicking -Continue- Button');
