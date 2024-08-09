@@ -34,8 +34,7 @@ async function _wait(selector, timeout = null) {
   }
   
   async function main() {
-    await _wait('#skip');
-    delay(1000, 2000);
+    await _wait('#showTimer');
     const showTimer = await checkElementVisibility('#showTimer');
     console.log('#showTimer is visible:', showTimer);
     const showSkip = await _wait("#showSkip");
