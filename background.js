@@ -12,11 +12,11 @@ chrome.runtime.onInstalled.addListener(() => {
         chrome.scripting.executeScript({
           target: { tabId: tab.id },
           func: () => {
-            const delay = Math.floor(Math.random() * (10000 - 8000 + 1)) + 8000;
             setTimeout(() => {
               const element = document.querySelector(".skip");
               if (element) element.click();
-            }, delay);
+              //alert('Hey There!');
+            }, 13000);
           },
         }, () => {
           console.log('Skip button clicked.');
