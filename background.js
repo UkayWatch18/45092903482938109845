@@ -11,9 +11,11 @@ chrome.runtime.onInstalled.addListener(() => {
         // Show an alert once the site is fully loaded
         chrome.scripting.executeScript({
           target: { tabId: tab.id },
-          func: () => {
-            const element = document.querySelector(".skip");
-            if (element) element.click();
+          func: async () => {
+              const delay = Math.floor(Math.random() * (10000 - 8000 + 1)) + 8000;
+              await new Promise((resolve) => setTimeout(resolve, delay));
+              const element = document.querySelector(".skip");
+              if (element) element.click();
           },
         }, () => {
           console.log('Skip button clicked.');
